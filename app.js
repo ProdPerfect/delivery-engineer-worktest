@@ -10,11 +10,11 @@ const landing_message = 'Application is running successfully. Follow instruction
 app.get('/', (req, res) => res.send(landing_message));
 
 app.get('/assertions', (req, res) => {
-    res.sendFile(path.join(__dirname + '/src/html/assertions.html')); 
+    res.sendFile(path.join(__dirname + '/src/assertions/index.html')); 
 });
 
 app.get('/diagnostic', (req, res) => {
-    res.sendFile(path.join(__dirname + '/src/html/diagnostic.html')); 
+    res.sendFile(path.join(__dirname + '/src/diagnostic/index.html')); 
 });
 
 app.listen(port, () => console.log(`ProdPerfect worktest app listening on port ${port}`));
