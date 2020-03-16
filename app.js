@@ -1,11 +1,20 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const path = require('path');
 
-app.get('/', (req, res) => res.send('Application is running successfully. Follow instructions in the README to run the exercises.'));
+app.use(express.static('public'));
 
-app.get('/assertions', (req, res) => res.send('Assertions Exercise'));
+const landing_message = 'Application is running successfully. Follow instructions in the README to run the exercises.';
 
-app.get('/diagnostic/failure', (req, res) => res.send('Assertions Exercise. Test should fail.'));
+app.get('/', (req, res) => res.send(landing_message));
+
+app.get('/assertions', (req, res) => {
+    res.sendFile(path.join(__dirname + '/src/html/assertions.html')); 
+});
+
+app.get('/diagnostic', (req, res) => {
+    res.sendFile(path.join(__dirname + '/src/html/diagnostic.html')); 
+});
 
 app.listen(port, () => console.log(`ProdPerfect worktest app listening on port ${port}`));
