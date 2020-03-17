@@ -1,20 +1,28 @@
-const express = require('express');
-const app = express();
+const express = require("express");
 const port = 3000;
-const path = require('path');
+const path = require("path");
+const bodyParser = require("body-parser");
+const Items = require("./items");
 
-app.use(express.static('public'));
+const app = express();
 
-const landing_message = 'Application is running successfully. Follow instructions in the README to run the exercises.';
+app.use(express.static(path.join(__dirname, "public")));
 
-app.get('/', (req, res) => res.send(landing_message));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-app.get('/assertions', (req, res) => {
-    res.sendFile(path.join(__dirname + '/src/assertions/index.html')); 
+// All views in vies folder
+app.set("views", path.join(__dirname, "views"));
+
+// Use pug templating
+app.set("view engine", "pug");
+
+app.get("/", (req, res) => {
+	res.render("index", {
+		items: Items
+	});
 });
 
-app.get('/diagnostic', (req, res) => {
-    res.sendFile(path.join(__dirname + '/src/diagnostic/index.html')); 
-});
-
-app.listen(port, () => console.log(`ProdPerfect worktest app listening on port ${port}`));
+app.listen(port, () =>
+	console.log(`ProdPerfect worktest app listening on port ${port}`)
+);
