@@ -17,4 +17,8 @@ app.get('/diagnostic', (req, res) => {
     res.sendFile(path.join(__dirname + '/src/diagnostic/index.html')); 
 });
 
+app.get('/success', (req, res) => {
+    res.sendFile(path.join(__dirname + '/src/diagnostic/success.html')); 
+});
+
 app.listen(port, () => console.log(`ProdPerfect worktest app listening on port ${port}`));

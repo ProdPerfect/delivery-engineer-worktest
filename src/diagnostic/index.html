@@ -204,18 +204,13 @@
   </head>
   <body>
     <div class="testbox">
-    <form action="/">
+    <form method="GET" action="/success">
       <div class="banner">
         <h1>Research Application Form</h1>
       </div>
       <div class="item">
         <p>Title of Research Proposal</p>
         <input type="text" name="proposal-title"/>
-      </div>
-      <div class="item">
-        <p>Date</p>
-        <input type="date" name="bdate" required/>
-        <i class="fas fa-calendar-alt"></i>
       </div>
       <h5>1. Principal Investigator:</h5>
       <div class="item">
@@ -243,21 +238,21 @@
         </div>
         <div class="item">
           <p>Phone<span class="required">*</span></p>
-          <input type="text" name="name" required/>
+          <input type="text" name="phone" required/>
         </div>
         <div class="item">
           <p>Fax</p>
-          <input type="text" name="name" />
+          <input type="text" name="fax" />
         </div>
         <div class="item">
           <p>Email<span class="required">*</span></p>
-          <input type="text" name="name" required/>
+          <input type="text" name="email" required/>
         </div>
       </div>
       <h5>2. Co-Investigator:</h5>
       <div class="item">
         <p>Name and Credentials<span class="required">*</span></p>
-        <input type="text" name="coinvestigator-name" required/>
+        <input type="text" name="coinvestigator-name"/>
       </div>
       <div id="coinvestigator-info">
         <div class="item">
@@ -280,15 +275,15 @@
         </div>
         <div class="item">
           <p>Phone<span class="required">*</span></p>
-          <input type="text" name="name" required/>
+          <input type="text" name="phone" required/>
         </div>
         <div class="item">
           <p>Fax</p>
-          <input type="text" name="name" />
+          <input type="text" name="fax" />
         </div>
         <div class="item">
           <p>Email<span class="required">*</span></p>
-          <input type="text" name="name" required/>
+          <input type="text" name="email" required/>
         </div>
       </div>
       <h5>3. Institute Member</h5>
@@ -320,24 +315,14 @@
           <label for="radio_6" class="radio"><span>No</span></label>
         </div>
       </div>
-      <h5>5. IRB:</h5>
-      <div class="question">
-        <p>Have you applied for IRB review:</p>
-        <div class="question-answer">
-          <input type="radio" value="none" id="radio_7" name="IRB"/>
-          <label for="radio_7" class="radio"><span>Yes</span></label>
-          <input type="radio" value="none" id="radio_8" name="IRB"/>
-          <label for="radio_8" class="radio"><span>No</span></label>
-        </div>
-      </div>
-      <h5>6. Students only:</h5>
+      <h5>5. Students only:</h5>
       <div class="item">
         <p>Name of research advisor:</p>
         <input type="text" name="name" />
       </div>
       <div class="item">
         <p>Include a letter of support from advisor in application packet.<span class="required">*</span></p>
-        <textarea rows="3" required></textarea>
+        <textarea rows="3" id="support-letter" required></textarea>
       </div>
       <div class="question">
         <p>Research Application Checklist:<span class="required">*</span></p>
@@ -389,7 +374,7 @@
         </div>
         <div class="item">
           <p>Electronic signature<span class="required">*</span></p>
-          <textarea rows="3" required></textarea>
+          <textarea id="signature" rows="3" required></textarea>
         </div>
         <div class="btn-block">
           <button type="submit" href="/">Send Application</button>
