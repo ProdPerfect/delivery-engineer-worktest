@@ -1,6 +1,10 @@
 $(document).ready(function() {
 	var fadeTime = 300;
 
+	recalculateCart();
+
+	$(".checkout").fadeOut(10);
+
 	/* Assign actions */
 	$(".product-quantity input").change(function() {
 		updateQuantity(this);
@@ -33,9 +37,17 @@ $(document).ready(function() {
 				$(".checkout").fadeOut(fadeTime);
 			} else {
 				$(".checkout").fadeIn(fadeTime);
-				$(".checkout").attr("href", `	`);
 			}
 			$(".totals-value").fadeIn(fadeTime);
+		});
+
+		$.ajax({
+			type: "POST",
+			url: "cart-total",
+			data: { total: total },
+			success: function(html) {
+				console.log("cart total updated");
+			}
 		});
 	}
 
@@ -50,10 +62,6 @@ $(document).ready(function() {
 		var quantity = $(quantityInput).val();
 		var linePrice = price * quantity;
 
-		console.log("Quantity is: ", quantity);
-
-		console.log("Price is: ", price);
-
 		/* Update line price display and recalc cart totals */
 		productRow.children(".product-line-price").each(function() {
 			$(this).fadeOut(fadeTime, function() {
@@ -61,6 +69,17 @@ $(document).ready(function() {
 				recalculateCart();
 				$(this).fadeIn(fadeTime);
 			});
+		});
+
+		var itemId = parseFloat(productRow.children(".product-id").text());
+
+		$.ajax({
+			type: "POST",
+			url: "update-quantity",
+			data: { id: itemId, quantity: quantity },
+			success: function(html) {
+				console.log("success");
+			}
 		});
 	}
 
@@ -74,5 +93,21 @@ $(document).ready(function() {
 			productRow.remove();
 			recalculateCart();
 		});
+
+		var itemId = parseFloat(productRow.children(".product-id").text());
+
+		$.ajax({
+			type: "POST",
+			url: "remove-item",
+			data: { id: itemId },
+			success: function(html) {
+				console.log("success");
+			}
+		});
 	}
+
+	$("#billingCheckBox").change(function() {
+		if (this.checked) $("#billing").fadeOut("slow");
+		else $("#billing").fadeIn("slow");
+	});
 });

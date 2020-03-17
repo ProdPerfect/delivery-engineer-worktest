@@ -4,7 +4,7 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
   link(rel='stylesheet' href='cart.css')
-  title Cart Summary
+  title Confirmation
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
   .container
     a.navbar-brand(href='/') Store
@@ -14,37 +14,34 @@ section
     .row
       .col-lg-12.col-md-12
         div
-          h2 Cart
+          h4= `${userInfo.firstName} ${userInfo.lastName}`
+          h5= userInfo.email
+          p= userInfo.address
+          p= userInfo.city
+          p= userInfo.state
+          p= userInfo.country
+          br
+        div
           .shopping-cart
             .column-labels
-              label.product-image Image
               label.product-details Product
               label.product-price Price
               label.product-quantity Quantity
-              label.product-removal Remove
               label.product-line-price Total
             each item in items
               .product
-                .product-image
-                  img(src=item.image)
                 .product-details
                   .product-title= item.name
                   p.product-description= item.description
                 .product-id(style='display: none;')= item.id
                 .product-price= item.price
                 .product-quantity
-                  input(type='number' min='1' value=`${item.quantity}`)
-                .product-removal
-                  button.remove-product
-                    | Remove
+                  p= item.quantity
                 .product-line-price= item.price
             .totals
-              .totals-item
                 label Subtotal
-                #cart-subtotal.totals-value
-                  | 0
-            a.checkout(href='checkout') Checkout
+                h1#cart-subtotal.totals-value= userInfo.total
 script(src='https://code.jquery.com/jquery-3.4.1.min.js' integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=' crossorigin='anonymous')
 script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
-script(src='cart.js')
+

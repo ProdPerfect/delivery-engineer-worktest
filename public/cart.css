@@ -226,27 +226,22 @@ label {
 		width: 70px;
 	}
 }
-/* Make more adjustments for phone */
-@media screen and (max-width: 350px) {
-	.product-removal {
-		float: right;
-	}
 
-	.product-line-price {
-		float: right;
-		clear: left;
-		width: auto;
-		margin-top: 10px;
-	}
+.custom-checkbox {
+	font-size: 16px !important;
+	margin-top: 5px !important;
+	vertical-align: top !important;
+}
 
-	.product .product-line-price:before {
-		content: "Item Total: Kshs.";
-	}
+.pay-btn {
+	box-shadow: 1px solid black;
+	padding: 2px 15px 2px 15px !important;
+	color: white !important;
+	background-color: #494;
+	opacity: 0.8;
+}
 
-	.totals .totals-item label {
-		width: 60%;
-	}
-	.totals .totals-item .totals-value {
-		width: 40%;
-	}
+.pay-btn:hover {
+	text-decoration: none !important;
+	opacity: 1;
 }
