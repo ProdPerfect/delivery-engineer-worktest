@@ -33,6 +33,7 @@ $(document).ready(function() {
 				$(".checkout").fadeOut(fadeTime);
 			} else {
 				$(".checkout").fadeIn(fadeTime);
+				$(".checkout").attr("href", `	`);
 			}
 			$(".totals-value").fadeIn(fadeTime);
 		});
