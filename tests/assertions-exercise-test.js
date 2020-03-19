@@ -24,8 +24,8 @@ fixture("regression test without assertions")
 // TEST
 test('ADD ASSERTIONS TO ME', async t => {
   await t
-    .typeText(Selector('body > section > div > div > div > div > div > div:nth-child(2) > div.product-quantity > input[type=number]'), '5', {paste: true, replace: true})
-    .typeText(Selector('body > section > div > div > div > div > div > div:nth-child(3) > div.product-quantity > input[type=number]'), '2', {paste: true, replace: true})
+    .typeText(Selector('body > section > div > div > div > div > div > div:nth-child(2) > div.product-quantity > input[type=number]'), '5', {paste: true, replace: true}).pressKey('enter')
+    .typeText(Selector('body > section > div > div > div > div > div > div:nth-child(3) > div.product-quantity > input[type=number]'), '2', {paste: true, replace: true}).pressKey('enter')
     .click(Selector('body > section > div > div > div > div > div > div:nth-child(5) > div.product-removal > button'))
     .click(Selector('body > section > div > div > div > div > div > a'))
     .typeText(Selector('body > section > div > div > div.col-lg-6.col-md-12 > form > div:nth-child(1) > div > div:nth-child(1) > input.form-control'), billing.first, {paste:true, replace: true})

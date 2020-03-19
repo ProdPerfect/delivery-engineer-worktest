@@ -14,12 +14,13 @@ section
     .row
       .col-lg-12.col-md-12
         div
+          h2= `Order Confirmation`
           h4= `${userInfo.firstName} ${userInfo.lastName}`
           h5= userInfo.email
           p= userInfo.address
           p= userInfo.city
           p= userInfo.state
-          p= userInfo.country
+          p= userInfo.zip
           br
         div
           .shopping-cart

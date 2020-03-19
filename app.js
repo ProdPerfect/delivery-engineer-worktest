@@ -81,7 +81,7 @@ app.post("/pay", (req, res) => {
 		address,
 		city,
 		state,
-		country,
+		zip,
 		total
 	} = req.body;
 
@@ -92,7 +92,7 @@ app.post("/pay", (req, res) => {
 		address,
 		city,
 		state,
-		country,
+		zip,
 		total
 	};
 	res.redirect("/success");
