@@ -1,12 +1,16 @@
 {
-  "scripts": {
-    "launch-app": "npm install && node app.js",
-    "assertions-exercise": "node_modules/.bin/testcafe chrome tests/assertions-exercise-test.js -e --debug-on-fail",
-    "failure-diagnostic-exercise": "node_modules/.bin/testcafe chrome tests/failure-diagnostic-exercise-test.js"
-  },
-  "devDependencies": {
-    "express": "^4.17.1",
-    "testcafe": "^1.8.2",
-    "faker": "^4.1.0"
-  }
+	"scripts": {
+		"launch-app": "npm install && node app.js",
+		"dev": "nodemon node app.js",
+		"assertions-exercise": "node_modules/.bin/testcafe chrome tests/assertions-exercise-test.js -e --debug-on-fail",
+		"failure-diagnostic-exercise": "node_modules/.bin/testcafe chrome tests/failure-diagnostic-exercise-test.js"
+	},
+	"devDependencies": {
+		"express": "^4.17.1",
+		"testcafe": "^1.8.2"
+	},
+	"dependencies": {
+		"nodemon": "^2.0.2",
+		"pug": "^2.0.4"
+	}
 }
