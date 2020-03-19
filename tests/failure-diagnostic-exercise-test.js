@@ -14,7 +14,7 @@ const principal = {
   zip: `${faker.address.zipCode()}`,
   phone: `${faker.phone.phoneNumber()}`,
   email: `${faker.internet.email()}`
-}
+};
 const coinvestigator = {
   name: `${faker.name.firstName()} ${faker.name.lastName()}`,
   address_1: `${faker.address.streetAddress()}`,
@@ -24,12 +24,14 @@ const coinvestigator = {
   zip: `${faker.address.zipCode()}`,
   phone: `${faker.phone.phoneNumber()}`,
   email: `${faker.internet.email()}`
-}
-const letter_of_support = 'Good dude.';
+};
+const letter_of_support = faker.random.words(2);
 
+// FIXTURE
 fixture("sample critical failure")
   .page(origin);
 
+// TEST
 test('THIS TEST WILL FAIL', async t => {
   await t
     // .setTestSpeed(0.5)
