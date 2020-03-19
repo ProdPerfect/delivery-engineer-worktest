@@ -79,6 +79,8 @@ test('THIS TEST WILL FAIL', async t => {
     .wait(1000)
     .expect(Selector('p').withText('Form submitted successfully!').exists).notOk()
     .click(Selector('label[for="check_6"]'))
+    .click(Selector('button').withAttribute('type', 'submit'))
+    .wait(1000)
     .expect(Selector('p').withText('Form submitted successfully!').exists).ok()
 
 });
