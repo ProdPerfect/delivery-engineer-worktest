@@ -44,12 +44,11 @@ test('THIS TEST WILL FAIL', async t => {
     .typeText(principal_div.find('input').withAttribute('placeholder', 'City'), principal.city, {paste: true, replace: true})
     .typeText(principal_div.find('input').withAttribute('placeholder', 'Region'), principal.region, {paste: true, replace: true})
     .typeText(principal_div.find('input').withAttribute('placeholder', 'Postal / Zip code'), principal.zip, {paste: true, replace: true})
-    .click(principal_div.find('select'))
     .click(principal_div.find('select > option').withText('USA'))
     .typeText(principal_div.find('input[name="phone"]'), principal.phone, {paste: true, replace: true})
     .typeText(principal_div.find('input[name="email"]'), principal.email, {paste: true, replace: true});
 
-  const coinvestigator_div = await Selector('#coinvestigator-info');
+  const coinvestigator_div = await Selector('#co-investigator-info');
 
   await t
     .typeText(coinvestigator_div.find('input').withAttribute('placeholder', 'Street address'), principal.address_1, {paste: true, replace: true})
@@ -70,11 +69,14 @@ test('THIS TEST WILL FAIL', async t => {
     .click(Selector('label[for="check_3"]'))
     .click(Selector('label[for="check_4"]'))
     .click(Selector('label[for="check_5"]'))
-    .click(Selector('label[for="check_6"]'))
     .click(Selector('label[for="check_7"]'))
     .click(Selector('label[for="check_8"]'))
     .click(Selector('label[for="check_9"]'))
     .typeText(Selector('#signature'), principal.name, {paste: true, replace: true})    
-    .click(Selector('button').withAttribute('type', 'submit')).debug();
+    .click(Selector('button').withAttribute('type', 'submit'))
+    .wait(1000)
+    .expect(Selector('p').withText('Form submitted successfully!').exists).notOk()
+    .click(Selector('label[for="check_6"]'))
+    .expect(Selector('p').withText('Form submitted successfully!').exists).ok()
 
 });
