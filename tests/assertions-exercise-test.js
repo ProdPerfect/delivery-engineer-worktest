@@ -38,6 +38,7 @@ test('ADD ASSERTIONS TO ME', async t => {
     .typeText(Selector('body > section > div > div > div.col-lg-6.col-md-12 > form > div:nth-child(5) > div > div > input'), card_number, {paste:true, replace: true})
     .typeText(Selector('body > section > div > div > div.col-lg-6.col-md-12 > form > div:nth-child(6) > div > div:nth-child(1) > input'), card_exp_date, {paste: true, replace: true})
     .typeText(Selector('body > section > div > div > div.col-lg-6.col-md-12 > form > div:nth-child(6) > div > div:nth-child(2) > input'), card_cvv, {paste: true, replace: true})
+    .click(Selector('label[for="check_8"]'))
     .click(Selector('#billingCheckBox'))
     .click(Selector('body > section > div > div > div.col-lg-6.col-md-12 > form > h2 > div:nth-child(3) > div > div > button'));
 });
